@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: db-services
+  labels:
+    app: db-services
+spec:
+  ports:
+    - name: db-services
+      port: 5432    
+      targetPort: 5432
+  selector:
+    app: bd
