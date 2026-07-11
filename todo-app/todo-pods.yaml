@@ -8,7 +8,12 @@ spec:
   containers:
     - name: todo-app
       image: umarkhan803/todo-frontend
-      containerPort: 3000
+      ports:
+      - containerPort: 3000
+        name: todo-app
+      
     - name: todo-app
       image: umarkhan803/todo-backend
-      containerPort: 3000
+      ports:
+      - containerPort: 3000
+        name: todo-app
