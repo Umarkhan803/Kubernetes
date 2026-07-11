@@ -6,11 +6,11 @@ metadata:
     app: todo-app
 spec:
   containers:
-    - name: todo-app
+    - name: todo-frontned
       image: umarkhan803/todo-frontend
       ports:
       - containerPort: 3000
-    - name: todo-app
+    - name: todo-backend
       image: umarkhan803/todo-backend
       ports:
       - containerPort: 3000
