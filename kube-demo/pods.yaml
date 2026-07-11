@@ -1,0 +1,111 @@
+# 1 vote pod - front-end web UI (Python), exposed via NodePort
+apiVersion: v1
+kind: Pod
+metadata:
+  name: vote
+  labels:
+    app: vote
+spec:
+  containers:
+    - name: vote-app
+      image: dockersamples/examplevotingapp_vote
+      ports:
+        - containerPort: 80
+          name: vote-app
+      resources:
+        requests:
+          cpu: "100m"
+          memory: "128Mi"
+        limits:
+          cpu: "250m"
+          memory: "256Mi"
+---
+# 2 result pod - result web UI (Node.js), exposed via NodePort
+apiVersion: v1
+kind: Pod
+metadata:
+  name: result
+  labels:
+    app: result
+spec:
+  containers:
+    - name: result-app
+      image: dockersamples/examplevotingapp_result
+      ports:
+        - containerPort: 80
+          name: result-app
+      resources:
+        requests:
+          cpu: "100m"
+          memory: "128Mi"
+        limits:
+          cpu: "250m"
+          memory: "256Mi"
+---
+# 3 worker pod - background processor (.NET), no ports/service needed
+apiVersion: v1
+kind: Pod
+metadata:
+  name: worker
+  labels:
+    app: worker
+spec:
+  containers:
+    - name: worker-app
+      image: dockersamples/examplevotingapp_worker
+      resources:
+        requests:
+          cpu: "100m"
+          memory: "128Mi"
+        limits:
+          cpu: "250m"
+          memory: "256Mi"
+---
+# 4 redis pod - in-memory store for votes, internal ClusterIP
+apiVersion: v1
+kind: Pod
+metadata:
+  name: redis
+  labels:
+    app: redis
+spec:
+  containers:
+    - name: redis
+      image: redis:alpine
+      ports:
+        - containerPort: 6379
+          name: redis
+      resources:
+        requests:
+          cpu: "50m"
+          memory: "64Mi"
+        limits:
+          cpu: "200m"
+          memory: "128Mi"
+---
+# 5 postgres pod - persistent DB for results, internal ClusterIP
+apiVersion: v1
+kind: Pod
+metadata:
+  name: postgres
+  labels:
+    app: postgres
+spec:
+  containers:
+    - name: postgres
+      image: postgres:15-alpine
+      env:
+        - name: POSTGRES_USER
+          value: postgres
+        - name: POSTGRES_PASSWORD
+          value: postgres
+      ports:
+        - containerPort: 5432
+          name: postgres
+      resources:
+        requests:
+          cpu: "100m"
+          memory: "128Mi"
+        limits:
+          cpu: "500m"
+          memory: "256Mi"
