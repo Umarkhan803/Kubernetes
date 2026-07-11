@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: todo-pod
+  labels:
+    app: todo-app
+spec:
+  containers:
+    - name: todo-app
+      image: umarkhan803/todo-frontend
+      containerPort: 3000
+    - name: todo-app
+      image: umarkhan803/todo-backend
+      containerPort: 3000
