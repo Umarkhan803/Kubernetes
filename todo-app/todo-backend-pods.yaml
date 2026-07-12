@@ -8,6 +8,12 @@ spec:
   containers:
     - name: todo-backend
       image: umarkhan803/todo-backend
+      env:
+        - name: MONGODB_URI
+          valueFrom:
+            secretKeyRef:
+              name: mongo-secret
+              key: MONGODB_URI
       ports:
-      - containerPort: 5000
-        name: todo-backend
+        - containerPort: 5000
+          name: todo-backend
