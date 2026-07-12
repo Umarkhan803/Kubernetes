@@ -1,0 +1,13 @@
+# GitHub Actions runner
+actions-runner
+
+# Logs
+*.log
+
+# Temporary files
+*.tmp
+*.swp
+
+# OS files
+.DS_Store
+Thumbs.db
