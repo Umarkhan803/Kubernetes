@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: todo-backend-services
+  labels:
+    app: todo-backend-services
+spec:
+   type: NodePort
+   ports:
+    - name: todo-backend-services
+      port: 5000
+      targetPort: 5000
+      nodePort: 31001
+   selector:
+    app: todo-backend-pod
