@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: result-deploy
+spec:
+  selector:
+    matchLabels:
+      app: result
+  replicas: 3
+  template:
+    metadata:
+      name: result
+      labels:
+        app: result
+    spec:
+      containers:
+        - name: result
+          image: dockersamples/examplevotingapp_result
+          ports:
+            - containerPort: 80
+              name: result

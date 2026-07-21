@@ -11,3 +11,4 @@ actions-runner
 # OS files
 .DS_Store
 Thumbs.db
+/notes
