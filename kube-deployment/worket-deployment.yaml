@@ -12,8 +12,8 @@ spec:
      name: worker
     labels:
       app: worker
-  spec:
-    containers:
-      - name: worker
-        image: dockersamples/examplevotingapp_worker
-    
+    spec:
+      containers:
+        - name: worker
+          image: dockersamples/examplevotingapp_worker
+      

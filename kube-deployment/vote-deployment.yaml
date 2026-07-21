@@ -12,13 +12,13 @@ spec:
      name: vote-app
     labels:
       app: vote-app
-  spec:
-    containers:
-      - name: vote-app
-        image: dockersamples/examplevotingapp_vote
-        ports:
-          - containerPort: 80
-            name: vote-app
+    spec:
+      containers:
+        - name: vote-app
+          image: dockersamples/examplevotingapp_vote
+          ports:
+            - containerPort: 80
+              name: vote-app
       
           
     
