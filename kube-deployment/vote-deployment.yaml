@@ -9,9 +9,8 @@ spec:
   replicas: 3
   template:
     metadata:
-     name: vote-app
-     labels:
-      app: vote-app
+      labels:
+        app: vote-app
     spec:
       containers:
         - name: vote-app
