@@ -10,7 +10,7 @@ spec:
   template:
     metadata:
      name: vote-app
-    labels:
+     labels:
       app: vote-app
     spec:
       containers:

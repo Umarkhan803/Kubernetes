@@ -10,8 +10,8 @@ spec:
   template:
     metadata:
      name: worker
-    labels:
-      app: worker
+      labels:
+        app: worker
     spec:
       containers:
         - name: worker
