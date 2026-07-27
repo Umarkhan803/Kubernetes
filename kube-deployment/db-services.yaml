@@ -10,4 +10,4 @@ spec:
       port: 5432    
       targetPort: 5432
   selector:
-    app: bd
+    app: db

@@ -9,6 +9,7 @@ spec:
   replicas: 3
   template:
     metadata:
+      name: worker-app
       labels:
         app: worker-app
     spec:
