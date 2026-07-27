@@ -1,17 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: worker-deploy
+  labels:
+    app: worker
+  name: worker
 spec:
   selector:
     matchLabels:
-      app: worker-app
+      app: worker
   replicas: 3
   template:
     metadata:
-      name: worker-app
+      name: worker
       labels:
-        app: worker-app
+        app: worker
     spec:
       containers:
         - name: worker

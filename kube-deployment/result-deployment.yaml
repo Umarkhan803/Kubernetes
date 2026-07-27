@@ -1,7 +1,9 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: result-deploy
+  labels:
+    app: result
+  name: result
 spec:
   selector:
     matchLabels:
@@ -9,7 +11,6 @@ spec:
   replicas: 3
   template:
     metadata:
-      name: result
       labels:
         app: result
     spec:
